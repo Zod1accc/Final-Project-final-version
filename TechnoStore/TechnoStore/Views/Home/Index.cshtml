@@ -1,0 +1,485 @@
+﻿@model HomeViewModel
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> localizer
+@{
+	int count = 0;
+	var bannerHalfLeft = Model.HomePageBanners.FirstOrDefault(x => x.Name.ToLower() == "BannerHalfLeft".ToLower());
+	var bannerHalfRight = Model.HomePageBanners.FirstOrDefault(x => x.Name.ToLower() == "BannerHalfRight".ToLower());
+	var bannerInnerBox = Model.HomePageBanners.FirstOrDefault(x => x.Name.ToLower() == "BannerInnerBox".ToLower());
+	var bannerWideBox = Model.HomePageBanners.FirstOrDefault(x => x.Name.ToLower() == "BannerWideBox".ToLower());
+}
+<section class="flat-row flat-slider">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="slider owl-carousel">
+					@foreach (var item in Model.Sliders)
+					{
+						double price = item.SellPrice - ((item.SellPrice * item.DiscountPrice) / 100);
+						<div class="slider-item">
+							<div class="item-text">
+								<div class="header-item">
+									<p>@item.Header</p>
+									<h2 class="name">@item.Name1<span>@item.Name2</span></h2>
+									<p>@item.Description</p>
+								</div>
+								<div class="content-item">
+									<div class="price">
+										<span class="sale">$@price.ToString("0.00")</span>
+										<span class="btn-shop">
+											<a href="@item.RedirectUrl" title="">@item.RedirectUrlText <img src="~/assets/images/icons/right-2.png" alt=""></a>
+										</span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="regular">
+										$@item.SellPrice
+									</div>
+								</div>
+							</div>
+							<div class="item-image">
+								<img style="max-width:300px;margin-top: 42px;" src="~/uploads/sliders/@item.Image" alt="">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+
+						<!-- /.slider -->
+					}
+				</div><!-- /.slider -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-slider -->
+
+<section class="flat-row flat-banner-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="banner-box one-half">
+					@if (bannerHalfLeft?.Disable == false)
+					{
+						<div class="inner-box">
+							<a href="@bannerHalfLeft.Url" title="">
+								<img src="~/uploads/banners/@bannerHalfLeft?.Image" alt="">
+							</a>
+						</div>
+
+						<!-- /.inner-box -->
+					}
+					@if (bannerHalfRight?.Disable == false)
+					{
+						<div class="inner-box">
+							<a href="@bannerHalfRight.Url" title="">
+								<img src="~/uploads/banners/@bannerHalfRight?.Image" alt="">
+							</a>
+						</div>
+
+						<!-- /.inner-box -->
+					}
+
+					<div class="clearfix"></div>
+				</div><!-- /.box -->
+				<div class="banner-box">
+					@if (bannerInnerBox?.Disable == false)
+					{
+						<div class="inner-box">
+							<a href="@bannerInnerBox.Url" title="">
+								<img src="~/uploads/banners/@bannerInnerBox?.Image" alt="">
+							</a>
+						</div>
+					}
+
+				</div><!-- /.box -->
+			</div><!-- /.col-md-8 -->
+
+			<div class="col-md-4">
+				<div class="banner-box">
+					@if (bannerWideBox?.Disable == false)
+					{
+						<div class="inner-box">
+							<a href="@bannerWideBox.Url" title="">
+								<img src="~/uploads/banners/@bannerWideBox?.Image" alt="">
+							</a>
+						</div>
+
+						<!-- /.inner-box -->
+					}
+
+				</div><!-- /.box -->
+			</div><!-- /.col-md-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-banner-box -->
+
+<section class="flat-imagebox">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-tab">
+					<ul class="tab-list">
+						<li class="active">@localizer["New Arrivals"]</li>
+						<li>@localizer["Featured"]</li>
+						<li>@localizer["Discounted Products"]</li>
+					</ul>
+				</div><!-- /.product-tab -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+		<div class="box-product">
+			<div class="row">
+
+				@*@await Html.PartialAsync("_productPartialView",Model.IsNew);*@
+				@{
+					await Html.RenderPartialAsync("_productPartialView", Model.IsNew);
+				}
+
+			</div><!-- /.row -->
+			<div class="row">
+
+				@await Html.PartialAsync("_productPartialView",Model.IsFeatured);
+
+			</div><!-- /.row -->
+			<div class="row">
+
+				@await Html.PartialAsync("_productPartialView",Model.DiscountProduct);
+
+			</div><!-- /.row -->
+
+		</div><!-- /.box-product -->
+	</div><!-- /.container -->
+</section><!-- /.flat-imagebox -->
+
+<section class="flat-imagebox style1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="flat-row-title">
+					<h3>@localizer["Our Products"]</h3>
+				</div>
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+		<div class="row ">
+			<div class="col-md-12 owl-carousel-10">
+				@foreach (var item in Model.OurProducts)
+				{
+					double price = 0;
+					price = item.SellPrice - ((item.SellPrice * item.DiscountPrice) / 100);
+					count++;
+					<div class="owl-carousel-item">
+						@if (count % 2 != 0)
+						{
+							<div class="product-box style1">
+								<div class="imagebox style1">
+									<div class="box-image">
+										<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+											<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="">
+										</a>
+									</div><!-- /.box-image -->
+									<div class="box-content">
+										<div class="cat-name">
+											<a title="">@item.Category.Name</a>
+										</div>
+										<div class="product-name">
+											<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+										</div>
+										<div class="price">
+											<span class="regular">$@price.ToString("0.00")</span>
+											<span class="sale">$@item.SellPrice</span>
+										</div>
+									</div><!-- /.box-content -->
+									<div class="box-bottom">
+										<div class="compare-wishlist">
+
+											<a asp-action="AddToFavourites" asp-controller="Product" asp-route-id="@item.Id" id="wishlist-link" class="wishlist addtofavourite" title="">
+												<img src="~/assets/images/icons/wishlist.png" alt="">Wishlist
+											</a>
+										</div>
+										<div class="btn-add-cart">
+											<a class="basketaddbtn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" title="">
+												Add to Cart
+											</a>
+										</div>
+									</div><!-- /.box-bottom -->
+								</div><!-- /.imagebox style1 -->
+							</div>
+
+							<!-- /.product-box style1 -->
+						}
+						else
+						{
+							<div class="product-box style1">
+								<div class="imagebox style1">
+									<div class="box-image">
+										<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+											<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="">
+										</a>
+									</div><!-- /.box-image -->
+									<div class="box-content">
+										<div class="cat-name">
+											<a  title="">@item.Category.Name</a>
+										</div>
+										<div class="product-name">
+											<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+										</div>
+										<div class="price">
+											<span class="regular">$@price.ToString("0.00")</span>
+											<span class="sale">$@item.SellPrice</span>
+										</div>
+									</div><!-- /.box-content -->
+									<div class="box-bottom">
+										<div class="compare-wishlist">
+
+											<a asp-action="AddToFavourites" asp-controller="Product" asp-route-id="@item.Id" class="wishlist addtofavourite" title="">
+												<img src="~/assets/images/icons/wishlist.png" alt="">Wishlist
+											</a>
+										</div>
+										<div class="btn-add-cart">
+											<a class="basketaddbtn" asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" title="">
+												Add to Cart
+											</a>
+										</div>
+									</div><!-- /.box-bottom -->
+								</div><!-- /.imagebox style1 -->
+							</div>
+
+							<!-- /.product-box style1 -->
+						}
+
+					</div>
+
+					<!-- /.owl-carousel-item -->
+				}
+
+
+			</div>
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-imagebox style1 -->
+
+<section class="flat-imagebox style2 background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-wrap">
+					<div class="product-tab style1">
+						<ul class="tab-list">
+							<li class="active">@localizer["Smartphones"]</li>
+							<li>@localizer["Tvs"]</li>
+							@*<li>Game Box</li>
+							<li>Accessories</li>
+							<li>Mobiles</li>
+							<li>Computers</li>*@
+						</ul><!-- /.tab-list -->
+					</div><!-- /.product-tab style1 -->
+					<div class="tab-item">
+						<div class="row">
+							@await Html.PartialAsync("_productstyle2PartialView",Model.Smartphones);
+						</div>
+						<div class="row">
+							@await Html.PartialAsync("_productstyle2PartialView",Model.Tvs);
+						</div><!-- /.row -->
+
+					</div><!-- /.tab-item -->
+				</div><!-- /.product-wrap -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-imagebox style2 -->
+
+
+
+<section class="flat-imagebox style4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="flat-row-title">
+					<h3>Most Viewed</h3>
+				</div>
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="owl-carousel-3">
+					@foreach (var item in Model.MostViewed)
+					{
+						double price = 0;
+						price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+						<div class="imagebox style4">
+						<div class="box-image">
+							<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+								<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="">
+							</a>
+						</div><!-- /.box-image -->
+						<div class="box-content">
+							<div class="cat-name">
+								<a href="#" title="">@item.Category.Name</a>
+							</div>
+							<div class="product-name">
+								<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+							</div>
+							<div class="price">
+								<span class="sale">$@price</span>
+								<span class="regular">$@item.SellPrice</span>
+							</div>
+						</div><!-- /.box-content -->
+					</div><!-- /.imagebox style4 -->
+					}
+					
+				</div><!-- /.owl-carousel-3 -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-imagebox style4 -->
+
+<section class="flat-highlights">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>Bestsellers</h3>
+				</div>
+				<ul class="product-list style1">
+					@foreach (var item in Model.BestSeller)
+					{
+						double price = 0;
+						price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+						<li>
+							<div class="img-product">
+								<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+									<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div class="name">
+									<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+								</div>
+								
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.SellPrice</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+				</ul><!-- /.product-list style1 -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>Featured</h3>
+				</div>
+				<ul class="product-list style1">
+					@foreach (var item in Model.IsFeatured.Take(3))
+					{
+						double price = 0;
+						price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+						<li>
+							<div class="img-product">
+								<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+									<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div class="name">
+									<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+								</div>
+
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.SellPrice</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+					
+					
+				</ul>
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>New Product</h3>
+				</div>
+				<ul class="product-list style1">
+					@foreach (var item in Model.IsNew.Take(3))
+					{
+						double price = 0;
+						price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+						<li>
+							<div class="img-product">
+								<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+									<img src="~/uploads/products/@item.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div asp-action="detail" asp-controller="product" asp-route-id="@item.Id">
+									<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+								</div>
+
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.SellPrice</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+				</ul>
+			</div><!-- /.col-md-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-highlights -->
+
+@*<section class="flat-iconbox">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model.Services)
+			{
+				<div class="col-md-3 col-sm-6">
+					<div class="iconbox">
+						<div class="box-header">
+							<div class="image">
+								<img src="~/uploads/services/@item?.Image" alt="">
+							</div>
+							<div class="box-title">
+								<h3>@item.Title</h3>
+							</div>
+						</div><!-- /.box-header -->
+						<div class="box-content">
+							<p>@item.Description</p>
+						</div><!-- /.box-content -->
+					</div><!-- /.iconbox -->
+				</div>
+
+				<!-- /.col-md-3 col-sm-6 -->
+			}
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-iconbox -->*@
+
+
+
+@*<script>
+	// Geri sayım zamanı
+	var countDownDate = new Date("March 5, 2023 15:37:25").getTime();
+
+	// Geri sayımı periyodik olarak güncelle
+	var x = setInterval(function () {
+		// Bugünün zamanı
+		var now = new Date().getTime();
+
+		// Geri sayım zamanı ile bugünün zamanı arasındaki farkı hesapla
+		var distance = countDownDate - now;
+
+		// Geri sayımı hesapla
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		// Geri sayımı HTML elementlerine yaz
+		document.getElementById("days").innerHTML = days;
+		document.getElementById("hours").innerHTML = hours;
+		document.getElement
+
+
+</script>*@

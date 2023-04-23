@@ -1,0 +1,114 @@
+﻿
+@model ContactViewModel
+
+		<section class="flat-breadcrumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumbs">
+							<li class="trail-item"> 
+								<a asp-action="index" asp-controller="home" title="">Home</a>
+								<span><img src="~/assets/images/icons/arrow-right.png" alt=""></span>
+							</li>
+							<li class="trail-end">
+								<a href="#" title="">Contact</a>
+							</li>
+						</ul><!-- /.breacrumbs -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-breadcrumb -->
+
+		<section class="flat-map">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="flat-map" class="pdmap">
+							   <div class="flat-maps" data-address="17872 US-90, Greenville, FL 32331" data-height="444" data-images="/assets/images/icons/map.png" data-name="Themesflat Map"></div>
+							<div class="gm-map">                
+								<div class="map"></div>                        
+							</div>
+						</div><!-- /#flat-map -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /#flat-map -->
+
+		<section class="flat-iconbox style4">
+			<div class="container">
+				<div class="row">
+					@foreach (var item in Model.contactServices)
+			{
+				<div class="col-md-6 col-lg-4">
+					<div class="iconbox style2">
+						<div class="box-header">
+							<div class="image">
+								<img src="~/uploads/contactservices/@item.Icon" alt="">
+							</div>
+							<div class="title">
+								<h3>@item.Title</h3>
+							</div>
+						</div><!-- /.box-header -->
+						<div class="box-content">
+							<p>
+								@item.Content
+							</p>
+						</div><!-- /.box-content -->
+					</div><!-- /.iconbox style2 -->
+				</div>
+
+				<!-- /.col-md-6 col-lg-3 -->
+			}
+					
+					
+					
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-iconbox style4 -->
+
+		<section class="flat-contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div>
+					<div class="col-lg-8 col-md-12">
+						<div class="form-contact center">
+							<div class="form-contact-header">
+								<h3>@Model.contactCenters.FirstOrDefault(x=>x.Key.ToLower() =="title")?.Value</h3>
+								<p>
+									@Model.contactCenters.FirstOrDefault(x=>x.Key.ToLower() =="desc")?.Value
+								</p>
+							</div><!-- /.form-contact-header -->
+							<div class="form-contact-content">
+								<form asp-action="Contact" method="post" id="form-contact" accept-charset="utf-8">
+									<div class="form-box one-half name-contact">
+										<label asp-for="Fullname">Fullname*</label>
+										<input asp-for="Fullname"  placeholder="Fullname">
+										<span asp-validation-for="Fullname" class="text-danger"> </span>
+									</div>
+									<div class="form-box one-half password-contact">
+										<label asp-for="Email">Email*</label>
+										<input asp-for="Email" placeholder="Email">
+									</div>
+									<div class="form-box">
+										<label asp-for="Subject">Subject</label>
+										<input asp-for="Subject" placeholder="Subject">
+									</div>
+									<div class="form-box">
+										<label asp-for="Comment">Comment</label>
+										<textarea asp-for="Comment"></textarea>
+									</div>
+									<div class="form-box">
+										<button type="submit" class="contact">Send</button>
+									</div>
+								</form>
+							</div><!-- /.form-contact-content -->
+						</div><!-- /.form-contact center -->
+					</div><!-- /.col-lg-8 col-md-12 -->
+					<div class="col-lg-2">
+					</div>
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-contact -->
+
+		

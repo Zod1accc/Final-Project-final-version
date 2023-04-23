@@ -1,0 +1,54 @@
+﻿@model List<Support>
+
+<section class="flat-breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumbs">
+					<li class="trail-item">
+						<a href="#" title="">Home</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>
+					@*<li class="trail-item">
+						<a href="#" title="">Shop</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>*@
+					<li class="trail-end">
+						<a href="#" title="">Support</a>
+					</li>
+				</ul><!-- /.breacrumbs -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+<section class="flat-row flat-accordion">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="accordion">
+					<div class="title">
+						<h3>Answers to Your Questions</h3>
+					</div>
+					@foreach (var item in Model)
+					{
+						<div class="accordion-toggle">
+							<div class="toggle-title">
+								@item.Title
+							</div>
+							<div class="toggle-content">
+								<p>
+									@item.Description
+								</p>
+							</div>
+						</div>
+
+						<!-- /.accordion-toggle -->
+					}
+
+
+				</div><!-- /.accordion -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-accordion -->

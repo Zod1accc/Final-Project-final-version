@@ -1,0 +1,144 @@
+﻿@model WishlistVM
+
+@{
+	double price = 0;
+}
+
+<section class="flat-breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumbs">
+					<li class="trail-item">
+						<a href="#" title="">Home</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-item">
+						<a href="#" title="">Shop</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-end">
+						<a href="#" title=""></a>
+					</li>
+				</ul><!-- /.breacrumbs -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+<section class="flat-wishlist">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="wishlist">
+					<div class="title">
+						<h3>My wishlist</h3>
+					</div>
+					<div class="wishlist-content">
+						<table class="table-wishlist">
+							<thead>
+								<tr>
+									<th>Product Name</th>
+									<th>Unit Price</th>
+									<th>Stock Status</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model.WishlistItems)
+								{
+									price = item.Product.SellPrice * (1 - (item.Product.DiscountPrice / 100));
+									<tr class="vishlist">
+										<td>
+											<div class="delete">
+												<a asp-action="removefavourite" asp-controller="product" asp-route-id="@item.Product.Id" class="deleteFavouriteItem"><img src="~/assets/images/icons/delete.png" alt=""></a>
+											</div>
+											<div class="product">
+												<div class="image">
+													<img src="~/uploads/products/@item.Product.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="">
+												</div>
+												<div class="name">
+													@item.Product.Name
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="price">
+												$@price.ToString("0.00")
+											</div>
+										</td>
+										<td>
+											<div class="status-product">
+												@if (item.Product.ProdutCount > 0)
+												{
+													<span>In stock</span>
+												}
+												else
+												{
+													<span>Not stock</span>
+												}
+											</div>
+										</td>
+										<td>
+											<div class="add-cart">
+												<a asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Product.Id" title="" class="basketaddbtn">
+													<img src="~/assets/images/icons/add-cart.png" alt="">Add to Cart
+												</a>
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table><!-- /.table-wishlist -->
+					</div><!-- /.wishlist-content -->
+				</div><!-- /.wishlist -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-wishlish -->
+
+<section class="flat-row flat-iconbox style2">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model.Services)
+			{
+				<div class="col-md-6 col-lg-3">
+					<div class="iconbox style1">
+						<div class="box-header">
+							<div class="image">
+								<img src="~/uploads/services/@item?.Image" alt="">
+							</div>
+							<div class="box-title">
+								<h3>@item.Title</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+					</div><!-- /.iconbox -->
+				</div>
+
+				<!-- /.col-md-6 col-lg-3 -->
+			}
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-iconbox -->
+
+@*<script>
+	$(".deletewishlist").on("click", function (e) {
+		e.preventDefault();
+		var productId = $(this).data("product-id");
+		var trElement = $(this).closest("tr");
+
+		// Ajax isteği gönderme
+		$.ajax({
+			type: "POST",
+			url: "/Product/RemoveFavourite/" + productId,
+			success: function () {
+				// Silinen ürünün <tr> elementini silme
+				trElement.remove();
+			},
+			error: function () {
+				console.log("Silme işlemi başarısız.");
+			}
+		});
+	});
+</script>*@

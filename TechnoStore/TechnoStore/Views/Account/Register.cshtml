@@ -1,0 +1,133 @@
+﻿@model RegisterViewModel
+
+<section class="flat-breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumbs">
+					<li class="trail-item">
+						<a href="#" title="">Home</a>
+						<span><img src="~/assets/images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-item">
+						<a href="#" title="">Shop</a>
+						<span><img src="~/assets/images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-end">
+						<a href="#" title="">Smartphones</a>
+					</li>
+				</ul><!-- /.breacrumbs -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+<section class="flat-account background">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="form-register">
+					<div class="title">
+						<h3>Register</h3>
+					</div>
+					<form asp-action="register" method="post" id="form-register" accept-charset="utf-8">
+						<div class="row row-cols-2">
+							<div class="form-box col-md-4">
+								<label asp-for="Fullname">Fullname </label>
+								<input asp-for="Fullname" placeholder="Fullname">
+								<span asp-validation-for="Fullname" class="text-danger"></span>
+							</div><!-- /.form-box -->
+							<div class="form-box col-md-4">
+								<label asp-for="Username">Username </label>
+								<input asp-for="Username" placeholder="Username">
+								<span asp-validation-for="Username" class="text-danger"></span>
+							</div><!-- /.form-box -->
+							<div class="form-box col-md-4">
+								<label asp-for="Email">Email </label>
+								<input asp-for="Email" placeholder="Email">
+								<span asp-validation-for="Email" class="text-danger"></span>
+							</div><!-- /.form-box -->
+						</div>
+						
+						<div class="row">
+							<div class="form-box col-md-6">
+								<label asp-for="Password">Password</label>
+								<input asp-for="Password" placeholder="Password">
+								<span asp-validation-for="Password" class="text-danger"></span>
+							</div><!-- /.form-box -->
+							<div class="form-box col-md-6">
+								<label asp-for="ConfirmPassword">ConfirmPassword</label>
+								<input asp-for="ConfirmPassword" placeholder="ConfirmPassword">
+								<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+							</div><!-- /.form-box -->
+						</div>
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<div class="form-box">
+							<button type="submit" class="register">Register</button>
+						</div><!-- /.form-box -->
+					</form><!-- /#form-register -->
+				</div><!-- /.form-register -->
+			</div><!-- /.col-md-6 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-account -->
+
+<section class="flat-row flat-iconbox style1 background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-lg-3">
+				<div class="iconbox style1 v1">
+					<div class="box-header">
+						<div class="image">
+							<img src="~/assets/images/icons/car.png" alt="">
+						</div>
+						<div class="box-title">
+							<h3>Worldwide Shipping</h3>
+						</div>
+						<div class="clearfix"></div>
+					</div><!-- /.box-header -->
+				</div><!-- /.iconbox -->
+			</div><!-- /.col-md-6 col-lg-3 -->
+			<div class="col-md-6 col-lg-3">
+				<div class="iconbox style1 v1">
+					<div class="box-header">
+						<div class="image">
+							<img src="~/assets/images/icons/order.png" alt="">
+						</div>
+						<div class="box-title">
+							<h3>Order Online Service</h3>
+						</div>
+						<div class="clearfix"></div>
+					</div><!-- /.box-header -->
+				</div><!-- /.iconbox -->
+			</div><!-- /.col-md-6 col-lg-3 -->
+			<div class="col-md-6 col-lg-3">
+				<div class="iconbox style1 v1">
+					<div class="box-header">
+						<div class="image">
+							<img src="~/assets/images/icons/payment.png" alt="">
+						</div>
+						<div class="box-title">
+							<h3>Payment</h3>
+						</div>
+						<div class="clearfix"></div>
+					</div><!-- /.box-header -->
+				</div><!-- /.iconbox -->
+			</div><!-- /.col-md-6 col-lg-3 -->
+			<div class="col-md-6 col-lg-3">
+				<div class="iconbox style1 v1">
+					<div class="box-header">
+						<div class="image">
+							<img src="~/assets/images/icons/return.png" alt="">
+						</div>
+						<div class="box-title">
+							<h3>Return 30 Days</h3>
+						</div>
+						<div class="clearfix"></div>
+					</div><!-- /.box-header -->
+				</div><!-- /.iconbox -->
+			</div><!-- /.col-md-6 col-lg-3 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-iconbox -->

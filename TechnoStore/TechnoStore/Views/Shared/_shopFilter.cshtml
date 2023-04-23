@@ -1,0 +1,66 @@
+﻿@model List<Product>
+
+
+@foreach (var item in Model)
+{
+
+	double sellPrice = item.SellPrice * (1 - (item.DiscountPrice / 100));
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product-box">
+			<div class="imagebox">
+				@if (item.IsNew)
+				{
+					<span class="item-new">NEW</span>
+				}
+				<div class="box-image owl-carousel-1">
+					<div class="image">
+						<a href="#" title="">
+							<img src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true)?.Image" alt="">
+						</a>
+					</div>
+					@*@foreach (var img in item.Images.Where(x => x.IsPoster == false))
+					{
+
+						<div class="image">
+							<a href="#" title="">
+								<img src="~/uploads/products/@img?.Image" alt="">
+							</a>
+						</div>
+					}*@
+
+				</div><!-- /.box-image -->
+				<div class="box-content">
+					<div class="cat-name">
+						<a href="#" title="">@item.Category.Name</a>
+					</div>
+					<div class="product-name">
+						<a href="#" title="">@item.Name</a>
+					</div>
+					<div class="price">
+						<span class="sale">$@sellPrice.ToString("0.00")</span>
+						<span class="regular">$@item.SellPrice</span>
+					</div>
+				</div><!-- /.box-content -->
+				<div class="box-bottom">
+					<div class="btn-add-cart">
+						<a href="#" title="">
+							<img src="~/assets/images/icons/add-cart.png" alt="">Add to Cart
+						</a>
+					</div>
+					<div class="compare-wishlist">
+						<a href="#" class="compare" title="">
+							<img src="~/assets/images/icons/compare.png" alt="">Compare
+						</a>
+						<a href="#" class="wishlist" title="">
+							<img src="~/assets/images/icons/wishlist.png" alt="">Wishlist
+						</a>
+					</div>
+				</div><!-- /.box-bottom -->
+			</div><!-- /.imagebox -->
+		</div><!-- /.product-box -->
+	</div>
+
+	<!-- /.col-lg-3 col-md-4 col-sm-6 -->
+}
+
+

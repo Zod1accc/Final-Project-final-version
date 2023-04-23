@@ -1,0 +1,37 @@
+﻿@model HomePageBannerVM
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update TV</h3>
+
+</div>
+
+<form asp-action="update" method="post" enctype="multipart/form-data">
+	<div class="row mt-3">
+
+
+		<div class="form-floating col-md-4">
+			<input asp-for="Url" class="form-control" placeholder="RedirectUrl">
+			<label asp-for="Url">RedirectUrl</label>
+			<span asp-validation-for="Url" class="text-danger"></span>
+		</div>
+
+		<div class="form-check form-check-success mb-3 mt-3 col-md-2">
+			<input class="form-check-input" type="checkbox" asp-for="Disable">
+			<label class="form-check-label" asp-for="Disable">
+				Disable
+			</label>
+		</div>
+		<div style="width:200px" col-md-4">
+			<label asp-for="ImageFile" class="form-label">Banner Image</label>
+			<input asp-for="ImageFile" class="form-control">
+			<img style="width:100px" src="~/uploads/banners/@Model?.Image" />
+			<span asp-validation-for="ImageFile"></span>
+		</div>
+
+		<div asp-validation-summary="ModelOnly"></div>
+
+		<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+
+	</div>
+</form>
+

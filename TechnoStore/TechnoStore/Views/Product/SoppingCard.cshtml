@@ -1,0 +1,171 @@
+﻿@model SoppingCardVM
+@{
+	double totalPrice = 0;
+}
+<section class="flat-breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumbs">
+					<li class="trail-item">
+						<a asp-action="index" asp-controller="home" title="">Home</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-item">
+						<a asp-action="shop" asp-controller="product" title="">Shop</a>
+						<span><img src="images/icons/arrow-right.png" alt=""></span>
+					</li>
+					<li class="trail-end">
+						<a href="#" title="">Smartphones</a>
+					</li>
+				</ul><!-- /.breacrumbs -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+<section class="flat-shop-cart">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="flat-row-title style1">
+					<h3>Shopping Cart</h3>
+				</div>
+				<div class="table-cart">
+					<table>
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>Total</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model.BasketItems)
+							{
+								if(item.Count > 0)
+								{
+									string shortValue = item.Product.Name.Substring(0, Math.Min(item.Product.Name.Length, 34)) + "...";
+									double price = (item.Product.SellPrice - ((item.Product.SellPrice * item.Product.DiscountPrice) / 100));
+									double total = price * item.Count;
+									totalPrice += price * item.Count;
+									<tr>
+										<td>
+											<div class="img-product">
+												<img src="~/uploads/products/@item.Product.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="">
+											</div>
+											<div class="name-product">
+												@shortValue
+											</div>
+											<div class="price">
+												$@price.ToString("0.00")
+											</div>
+											<div class="clearfix"></div>
+										</td>
+										<td>
+											<div class="quanlity">
+												<a class="delete btn-deleteproductCard" asp-action="removefrombasket" asp-controller="home" asp-route-id="@item.Product.Id"><span class="btn-down"></span></a>
+												<input id="countSpanCardInput" class="countSpanCard" type="number" name="number" value="@item.Count" min="1" max="100" placeholder="Quanlity" disabled>
+												<a asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Product.Id" class="addtobasketCard" title=""><span class="btn-up" id="countSpanCardIncrement"></span></a>
+												
+											</div>
+										</td>
+										<td>
+											<div class="total">
+												$@total.ToString("0.00")
+											</div>
+										</td>
+										<td>
+											<a asp-action="DeleteShoppingItem" asp-controller="product" asp-route-id="@item.Product.Id" class="deleteCardItem" title="">
+												<img src="~/assets/images/icons/delete.png" alt="">
+											</a>
+										</td>
+									</tr>
+								}
+								
+							}
+							
+						</tbody>
+					</table>
+					@*<div class="form-coupon">
+						<form action="#" method="get" accept-charset="utf-8">
+							<div class="coupon-input">
+								<input type="text" name="coupon code" placeholder="Coupon Code">
+								<button type="submit">Apply Coupon</button>
+							</div>
+						</form>
+					</div><!-- /.form-coupon -->*@
+				</div><!-- /.table-cart -->
+			</div><!-- /.col-lg-8 -->
+			<div class="col-lg-4">
+				<div class="cart-totals">
+					<h3>Cart Totals</h3>
+					<form action="#" method="get" accept-charset="utf-8">
+						<table>
+							<tbody>
+								@*<tr>
+									<td>Subtotal</td>
+									<td class="subtotal">$2,589.00</td>
+								</tr>*@
+								@*<tr>
+									<td>Shipping</td>
+									<td class="btn-radio">
+										<div class="radio-info">
+											<input type="radio" id="flat-rate" checked name="radio-flat-rate">
+											<label for="flat-rate">Flat Rate: <span>$3.00</span></label>
+										</div>
+										<div class="radio-info">
+											<input type="radio" id="free-shipping" name="radio-flat-rate">
+											<label for="free-shipping">Free Shipping</label>
+										</div>
+										<div class="btn-shipping">
+											<a href="#" title="">Calculate Shipping</a>
+										</div>
+									</td><!-- /.btn-radio -->
+								</tr>*@
+								<tr>
+									<td>Total</td>
+									<td class="price-total">$@totalPrice.ToString("0.00")</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="btn-cart-totals">
+							<a asp-action="SoppingCard" asp-controller="product" class="update" title="">
+								Update Cart
+							</a>
+							<a asp-action="checkout" asp-controller="product" class="checkout" title="">Proceed to Checkout</a>
+						</div><!-- /.btn-cart-totals -->
+					</form><!-- /form -->
+				</div><!-- /.cart-totals -->
+			</div><!-- /.col-lg-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-shop-cart -->
+
+<section class="flat-row flat-iconbox style3">
+	<div class="container">
+		<div class="row">
+			@foreach (var item in Model.Services)
+			{
+				<div class="col-lg-3 col-md-6">
+					<div class="iconbox style1">
+						<div class="box-header">
+							<div class="image">
+								<img src="~/uploads/services/@item.Image" alt="">
+							</div>
+							<div class="box-title">
+								<h3>@item.Title</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div><!-- /.box-header -->
+					</div><!-- /.iconbox -->
+				</div>
+
+				<!-- /.col-lg-3 col-md-6 -->
+			}
+
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-iconbox -->

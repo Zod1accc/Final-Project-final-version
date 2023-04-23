@@ -1,0 +1,47 @@
+﻿
+@model List<Setting>
+
+
+<div class="d-flex justify-content-between container-fluid mb-4">
+    <h3>Settings</h3>
+    <div class="col-auto">
+        <a asp-action="update" asp-controller="setting" asp-route-id="@Model.FirstOrDefault()?.Id" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Update Settings</a>
+    </div>
+</div>
+
+
+<div class="table-responsive table-card">
+    <table class="table table-nowrap mb-0">
+        <thead class="table-light">
+            <tr>
+                
+                <th scope="col">Logo Image</th>
+                <th scope="col">Address</th>
+                <th scope="col">Call Us</th>
+               @* <th scope="col">Total</th>*@
+                
+                <th scope="col">Callus Text</th>
+                <th scope="col">Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/uploads/settings/@item.Logo" />
+                    </td>
+                    <td>@item.Address</td>
+                    <td>@item.Callus</td>
+                    @*<td>@item.CallusIcon</td>*@
+                    <td>@item.CallusText</td>
+                    <td><a asp-action="update" asp-controller="setting" asp-route-id="@item.Id">
+                            <i class="ri-edit-2-line"></i>
+                    </a></td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>

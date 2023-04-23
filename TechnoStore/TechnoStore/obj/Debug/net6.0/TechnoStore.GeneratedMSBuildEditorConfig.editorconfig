@@ -1,0 +1,301 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TechnoStore
+build_property.RootNamespace = TechnoStore
+build_property.ProjectDir = F:\Layihe-Project_01 — копия\TechnoStore\TechnoStore\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\Layihe-Project_01 — копия\TechnoStore\TechnoStore
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Banner/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJhbm5lclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Banner/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJhbm5lclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Banner/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJhbm5lclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Brand/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJyYW5kXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Brand/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJyYW5kXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Brand/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEJyYW5kXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/ContactCenterIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xDb250YWN0Q2VudGVySW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/ContactCenterUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xDb250YWN0Q2VudGVyVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/Contacts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xDb250YWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/ContactsDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xDb250YWN0c0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/ContactServices/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvbnRhY3RTZXJ2aWNlc1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Dashboard/OrderItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERhc2hib2FyZFxPcmRlckl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Phone/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFBob25lXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Phone/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFBob25lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Phone/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFBob25lXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Service/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNlcnZpY2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Service/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNlcnZpY2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Service/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNlcnZpY2VcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Setting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNldHRpbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Setting/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNldHRpbmdcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Slider/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Slider/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Slider/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFNsaWRlclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Support/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFN1cHBvcnRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Support/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFN1cHBvcnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Support/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFN1cHBvcnRcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Tv/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFR2XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Tv/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFR2XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Tv/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFR2XFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Users/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFVzZXJzXERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFVzZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Widget/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFdpZGdldFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Widget/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFdpZGdldFxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Widget/WidgetItemCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFdpZGdldFxXaWRnZXRJdGVtQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Widget/WidgetItemIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFdpZGdldFxXaWRnZXRJdGVtSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Widget/WidgetItemUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFdpZGdldFxXaWRnZXRJdGVtVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Zipcode/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFppcGNvZGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Zipcode/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFppcGNvZGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/Zipcode/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXFppcGNvZGVcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Areas/Manage/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Home/Deneme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW5lbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Home/Support.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdXBwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/Featured.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxGZWF0dXJlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/GetProductOfCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxHZXRQcm9kdWN0T2ZDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/SearchProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2hQcm9kdWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTaG9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/ShopFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTaG9wRmlsdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/SoppingCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTb3BwaW5nQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Product/Wishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxXaXNobGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/_basketItemPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9iYXNrZXRJdGVtUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/_productPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wcm9kdWN0UGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/_productstyle2PartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wcm9kdWN0c3R5bGUyUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/_shopFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9zaG9wRmlsdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Layihe-Project_01 — копия/TechnoStore/TechnoStore/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-cq02ck7w0b

@@ -1,0 +1,102 @@
+﻿@model PaginatedList<Product>
+@{
+    int count = 0;
+}
+<div class="d-flex justify-content-between container-fluid mb-4">
+    <h3>TV`s</h3>
+    <div class="col-auto">
+        <a asp-action="create" asp-controller="tv" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Add TV</a>
+    </div>
+</div>
+
+
+
+
+
+<div class="table-responsive table-card">
+    <table class="table table-nowrap mb-0">
+        <thead class="table-light">
+            <tr>
+
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Sellprice</th>
+                <th scope="col">IsAviable</th>
+                <th scope="col">Poster Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.Name</td>
+                    <td>$@item.SellPrice</td>
+                    @if (item.ProdutCount > 0)
+                    {
+                        <td><span class="badge bg-success">IsAviable</span></td>
+                    }
+                    else
+                    {
+                        <td><span class="badge bg-danger">NotAviable</span></td>
+                    }
+
+                    <td>
+                        <img style="width:100px" src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true).Image" />
+                    </td>
+                    <td>
+                        <div class="hstack gap-3 fs-15">
+                            <a asp-action="update" asp-controller="tv" asp-route-id="@item.Id" class="link-primary"><i class="ri-settings-4-line"></i></a>
+                            <a asp-action="delete" asp-controller="tv" asp-route-id="@item.Id" class="link-danger delete-item-btn"><i class="ri-delete-bin-5-line"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    <div style="margin-left:auto">
+        <div>
+            <form method="get">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        @if (Model.HasPrevious)
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link" asp-action="index" asp-controller="tv" asp-route-page="@(Model.Page-1)">Previous</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled">
+                                <a class="page-link disable" asp-action="index" asp-controller="tv" asp-route-page="@(Model.Page-1)">Previous</a>
+                            </li>
+                        }
+
+                        @for (int i = 1; i <= Model.TotalPage; i++)
+                        {
+                            <li class="page-item @(Model.Page == i ? "active":" ")" aria-current="page">
+                                <a class="page-link" asp-action="index" asp-controller="tv" asp-route-page="@i">@i</a>
+                            </li>
+                        }
+                        @if (Model.HasNext)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" asp-action="index" asp-controller="tv" asp-route-page="@(Model.Page+1)">Next</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link disabled" asp-action="index" asp-controller="tv" asp-route-page="@(Model.Page+1)">Next</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </form>
+        </div>
+    </div>
+</div>

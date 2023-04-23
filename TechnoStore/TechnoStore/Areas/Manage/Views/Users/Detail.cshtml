@@ -1,0 +1,79 @@
+﻿@using TechnoStore.ViewModels;
+
+@model DetailViewModel
+
+@{
+	int count = 0;
+}
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>User detail: @Model.User.Fullname</h3>
+
+</div>
+
+<form method="post" asp-action="edit" asp-controller="users">
+	<div class="row">
+		<div class="col-md-2 mt-2">
+			<select class="form-select" asp-for="RoleId" asp-items="@(new SelectList(ViewBag.Roles,"Id","Name"))">
+			</select>
+		</div>
+		<div class="form-check form-check-success mb-3 mt-3 col-md-2">
+			<input class="form-check-input" type="checkbox" asp-for="IsBanned">
+			<label class="form-check-label" asp-for="IsBanned">
+				IsBanned
+			</label>
+		</div>
+		<div>
+			<input type="hidden" name="AppUserId" value="@Model.AppUserId" />
+		</div>
+	</div>
+
+	<button type="submit" class="btn btn-outline-info mt-3" style="width:150px"> Edit</button>
+</form>
+
+
+<div class="d-flex justify-content-between container-fluid mt-5">
+	<h3>User Orders : @Model.User?.UserName</h3>
+
+</div>
+
+<!-- Table Foot -->
+<table class="table table-nowrap">
+	<thead class="table-light ">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Phone</th>
+			<th scope="col">Date</th>
+			<th scope="col">Addres 1</th>
+			<th scope="col">Addres 2</th>
+			<th scope="col">City</th>
+			<th scope="col">Note</th>
+			<th scope="col">Detail</th>
+			@*<th scope="col">Payment</th>*@
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Orders)
+		{
+			count++;
+			<tr>
+				<th scope="row">@count</th>
+				<td>@item.PhoneNumber</td>
+				<td>@item.CreatedTime</td>
+				<td>@item.Address1</td>
+				<td>@item.Address2</td>
+				<td>@item.City</td>
+				<td>@item.Note</td>
+				<td>
+					<a asp-action="orderitem" asp-controller="dashboard" asp-route-id="@item.Id">
+						<i class="ri-eye-fill fs-16"></i>
+					</a>
+				</td>
+				
+			</tr>
+		}
+		
+
+	</tbody>
+	
+</table>

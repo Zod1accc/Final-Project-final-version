@@ -1,0 +1,263 @@
+﻿@model ShopViewModel
+
+<section class="flat-breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumbs">
+					<li class="trail-item">
+						<a asp-action="index" asp-controller="home" title="">Home</a>
+						<span><img src="~/assets/images/icons/arrow-right.png" alt=""></span>
+					</li>
+					@*<li class="trail-item">
+						<a href="#" title="">Shop</a>
+						<span><img src="~/assets/images/icons/arrow-right.png" alt=""></span>
+					</li>*@
+					<li class="trail-end">
+						<a href="#" title="">Shop</a>
+					</li>
+				</ul><!-- /.breacrumbs -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-breadcrumb -->
+
+<main id="shop" class="style2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="main-shop">
+					<div class="wrap-imagebox">
+						<div class="flat-row-title style4">
+							<h3>Mobile & Tablet</h3>
+							<span>
+								Showing 12 results
+							</span>
+							<div class="clearfix"></div>
+						</div><!-- /.flat-row-title style4 -->
+						<div class="row">
+							@foreach (var item in Model.PaginatedProducts)
+							{
+								double price = 0;
+								price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+								<div class="col-lg-3 col-md-4 col-sm-6">
+									<div class="product-box">
+										<div class="imagebox">
+											@if (item.IsNew == true)
+											{
+												<span class="item-new">NEW</span>
+											}
+
+											<div class="box-image owl-carousel-1">
+												<div class="image">
+													<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+														<img src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true)?.Image" alt="">
+													</a>
+												</div>
+												@foreach (var img in item.Images.Where(x=>x.IsPoster == false).ToList())
+												{
+													<div class="image">
+														<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+															<img src="~/uploads/products/@img?.Image" alt="">
+														</a>
+													</div>
+												}
+											
+											</div><!-- /.box-image -->
+											<div class="box-content">
+												<div class="cat-name">
+													<a asp-action="getproductofcategory" asp-controller="product" asp-route-id="@item.CategoryId" title="">@item.Category.Name</a>
+												</div>
+												<div class="product-name">
+													<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">@item.Name</a>
+												</div>
+												<div class="price">
+													<span class="sale">$@price.ToString("0.00")</span>
+													<span class="regular">$@item.SellPrice.ToString("0.00")</span>
+												</div>
+											</div><!-- /.box-content -->
+											<div class="box-bottom">
+												<div class="btn-add-cart">
+													<a asp-action="addtobasket" asp-controller="home" asp-route-id="@item.Id" class="basketaddbtn" title="">
+														<img src="~/assets/images/icons/add-cart.png" alt="">Add to Cart
+													</a>
+												</div>
+												<div class="compare-wishlist">
+													@*<a href="#" class="compare" title="">
+												<img src="~/assets/images/icons/compare.png" alt="">Compare
+												</a>*@
+													<a asp-action="AddToFavourites" asp-controller="Product" asp-route-id="@item.Id" class="wishlist addtofavourite" title="">
+														<img src="~/assets/images/icons/wishlist.png" alt="">Wishlist
+													</a>
+												</div>
+											</div><!-- /.box-bottom -->
+										</div><!-- /.imagebox -->
+									</div><!-- /.product-box -->
+								</div>
+
+								<!-- /.col-lg-3 col-md-4 col-sm-6 -->
+							}
+
+						</div><!-- /.row -->
+					</div><!-- /.wrap-imagebox -->
+					<div class="blog-pagination style1">
+						<span>
+							Showing 12 results
+						</span>
+						<form method="get">
+							<ul class="flat-pagination style1">
+								@if (Model.PaginatedProducts.HasPrevious)
+								{
+									<li class="prev">
+										<a asp-action="shop" asp-controller="product" asp-route-page="@(Model.PaginatedProducts.Page-1)" title="">
+											<img src="~/assets/images/icons/left-1.png" alt="">Prev Page
+										</a>
+									</li>
+								}
+
+								@for (int i = 1; i <= Model.PaginatedProducts.TotalPage; i++)
+								{
+									<li class=" @(Model.PaginatedProducts.Page == i ? "active":" ")">
+										<a asp-action="shop" asp-controller="product" asp-route-page="@i" class="waves-effect" title="">@i</a>
+									</li>
+								}
+								@if (Model.PaginatedProducts.HasNext)
+								{
+									<li class="next">
+										<a asp-action="shop" asp-controller="product" asp-route-page="@(Model.PaginatedProducts.Page+1)" title="">
+											Next Page<img src="~/assets/images/icons/right-1.png" alt="">
+										</a>
+									</li>
+								}
+
+							</ul><!-- /.flat-pagination -->
+						</form>
+
+						<div class="clearfix"></div>
+					</div><!-- /.blog-pagination -->
+				</div><!-- /.main-shop -->
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</main><!-- /#shop -->
+
+<section class="flat-row flat-highlights style1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>Bestsellers</h3>
+				</div><!-- /.flat-row-title -->
+				<ul class="product-list style1 v2">
+					@foreach (var item in Model.BestSeller)
+					{
+						double price = 0;
+						price = (item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100);
+						<li>
+							<div class="img-product">
+								<a href="#" title="">
+									<img src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true)?.Image" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div class="name">
+									<a href="#" title="">@item.Name</a>
+								</div>
+								@*<div class="queue">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							</div>*@
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.SellPrice</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+				</ul><!-- /.product-list style1 -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>Featured</h3>
+				</div><!-- /.flat-row-title -->
+				<ul class="product-list style1">
+					@foreach (var item in Model.IsFeatured)
+					{
+						double price = 0;
+						price = (item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100);
+
+						<li>
+							<div class="img-product">
+								<a asp-action="detail" asp-controller="product" asp-route-id="@item.Id" title="">
+									<img src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true)?.Image" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div class="name">
+									<a href="#" title="">@item.Name</a>
+								</div>
+								@*<div class="queue">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							</div>*@
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+
+
+				</ul><!-- /.product-list style1 -->
+			</div><!-- /.col-md-4 -->
+			<div class="col-md-4">
+				<div class="flat-row-title">
+					<h3>Hot Sale</h3>
+				</div><!-- /.flat-row-title -->
+				<ul class="product-list style1">
+					@foreach (var item in Model.IsNew)
+					{
+						double price = 0;
+						price = (item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100);
+
+						<li>
+							<div class="img-product">
+								<a href="#" title="">
+									<img src="~/uploads/products/@item.Images.FirstOrDefault(x=>x.IsPoster == true)?.Image" alt="">
+								</a>
+							</div>
+							<div class="info-product">
+								<div class="name">
+									<a href="#" title="">@item.Name</a>
+								</div>
+								@*<div class="queue">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							</div>*@
+								<div class="price">
+									<span class="sale">$@price</span>
+									<span class="regular">$@item.SellPrice</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					}
+
+
+				</ul><!-- /.product-list style1 -->
+			</div><!-- /.col-md-4 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.flat-highlights -->

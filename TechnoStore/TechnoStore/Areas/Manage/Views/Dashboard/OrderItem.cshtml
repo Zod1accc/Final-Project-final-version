@@ -1,0 +1,160 @@
+﻿@model Order
+
+@{
+	double discountPrice = 0;
+
+	double totalPrice = 0;
+}
+
+
+
+<!-- start page title -->
+<div class="row">
+	<div class="col-12">
+		<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+			<h4 class="mb-sm-0">Order Details</h4>
+
+			<div class="page-title-right">
+				<ol class="breadcrumb m-0">
+					<li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+					<li class="breadcrumb-item active">Order Details</li>
+				</ol>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+	<div class="col-xl-9">
+		<div class="card">
+			<div class="card-header">
+				<div class="d-flex align-items-center">
+					<h5 class="card-title flex-grow-1 mb-0">Order</h5>
+					@*<div class="flex-shrink-0">
+					<a href="apps-invoices-details.html" class="btn btn-success btn-sm"><i class="ri-download-2-fill align-middle me-1"></i> Invoice</a>
+					</div>*@
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive table-card">
+					<table class="table table-nowrap align-middle table-borderless mb-0">
+						<thead class="table-light text-muted">
+							<tr>
+								<th scope="col">Product Details</th>
+								<th scope="col">Item Price</th>
+								<th scope="col">Count</th>
+								@*<th scope="col">Quantity</th>
+								<th scope="col">Rating</th>*@
+								<th scope="col" class="text-end">Total Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model.OrderItems)
+							{
+								double price = 0;
+								double totalAmount = 0;
+								discountPrice += (item.SellPrice * item.DiscountPrice) / 100;
+								price = (item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100);
+								totalAmount = price * item.Count;
+								totalPrice += totalAmount;
+								<tr>
+									<td>
+										<div class="d-flex">
+											<div class="flex-shrink-0 avatar-md bg-light rounded p-1">
+												<img src="~/uploads/products/@item.Product.Images.Where(x=>x.IsPoster == true).FirstOrDefault()?.Image" alt="" class="img-fluid d-block">
+											</div>
+											<div class="flex-grow-1 ms-3">
+												<h5 class="fs-15">@item.ProductName</h5>
+												@*<p class="text-muted mb-0">Color: <span class="fw-medium">Pink</span></p>
+											<p class="text-muted mb-0">Size: <span class="fw-medium">M</span></p>*@
+											</div>
+										</div>
+									</td>
+									<td>$@item.SellPrice.ToString("0.00")</td>
+									<td>@item.Count</td>
+
+									<td class="fw-medium text-end">
+										$@totalAmount.ToString("0.00")
+									</td>
+								</tr>
+							}
+
+
+							<tr class="border-top border-top-dashed">
+								<td colspan="3"></td>
+								<td colspan="2" class="fw-medium p-0">
+									<table class="table table-borderless mb-0">
+										<tbody>
+											<tr>
+												<td>Discount Price :</td>
+												<td class="text-end">$@discountPrice.ToString("0.00")</td>
+											</tr>
+
+											<tr class="border-top border-top-dashed">
+												<th scope="row">Total (USD) :</th>
+												<th class="text-end">$@totalPrice.ToString("0.00")</th>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!--end col-->
+	<div class="col-xl-3">
+
+
+		<div class="card">
+			<div class="card-header">
+				<div class="d-flex">
+					<h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
+
+				</div>
+			</div>
+			<div class="card-body">
+				<ul class="list-unstyled mb-0 vstack gap-3">
+					<li>
+						<div class="d-flex align-items-center">
+							@*<div class="flex-shrink-0">
+							<img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-sm rounded">
+							</div>*@
+							<div class="flex-grow-1 ms-3">
+								<h6 class="fs-14 mb-1">@Model.AppUser?.Fullname</h6>
+								<p class="text-muted mb-0">Member</p>
+							</div>
+						</div>
+					</li>
+					<li><i class="ri-mail-line me-2 align-middle text-muted fs-16"></i>@Model.Email</li>
+					<li><i class="ri-phone-line me-2 align-middle text-muted fs-16"></i>+(994) @Model.PhoneNumber</li>
+				</ul>
+			</div>
+		</div>
+		<!--end card-->
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Billing Address</h5>
+			</div>
+			<div class="card-body">
+				<ul class="list-unstyled vstack gap-2 fs-13 mb-0">
+					<li class="fw-medium fs-14">@Model.AppUser?.Fullname</li>
+					<li>+(994) @Model.PhoneNumber</li>
+					<li>@Model.Address1</li>
+					<li>@Model.Address2</li>
+					<li>@Model.City</li>
+					<li>@Model.Country.Name</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--end card-->
+	</div>
+	<!--end col-->
+</div>
+<!--end row-->

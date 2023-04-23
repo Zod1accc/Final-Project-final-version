@@ -1,0 +1,30 @@
+﻿
+@model Contact
+
+<form action="javascript:void(0);">
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label asp-for="Fullname" class="form-label">Fullname</label>
+                <input asp-for="Fullname" class="form-control" id="firstNameinput" readonly>
+            </div>
+        </div><!--end col-->
+        <div class="col-4">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" id="lastNameinput" readonly>
+            </div>
+        </div><!--end col-->
+        <div class="col-4">
+            <div class="mb-3">
+                <label asp-for="Subject" class="form-label">Subject</label>
+                <input asp-for="Subject" class="form-control" id="lastNameinput" readonly>
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+    <div class="mb-3">
+        <label asp-for="Comment" class="form-label">Message</label>
+        <textarea asp-for="Comment" class="form-control" id="VertimeassageInput" rows="3" readonly></textarea>
+    </div>
+    <a asp-action="contacts" asp-controller="contactservices" class="btn btn-outline-info">Back To</a>
+</form>

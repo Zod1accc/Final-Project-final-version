@@ -1,0 +1,77 @@
+﻿@model SettingViewModel
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update Settings</h3>
+
+</div>
+
+<div class="cotainer-fluid ">
+	<form method="post" asp-action="update" enctype="multipart/form-data">
+		<div class="row ">
+			<div class="form-floating col-md-4">
+				<input asp-for="Callus" class="form-control" placeholder="Callus">
+				<label asp-for="Callus">Callus</label>
+				<span asp-validation-for="Callus"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="CallusText" class="form-control" placeholder="Address">
+				<label asp-for="CallusText">CallusText</label>
+				<span asp-validation-for="CallusText" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="Address" class="form-control" placeholder="Address">
+				<label asp-for="Address">Address</label>
+				<span asp-validation-for="Address" class="text-danger"></span>
+			</div>
+
+		</div>
+		<div class="row mt-3">
+
+
+			<div class="form-floating col-md-3">
+				<input asp-for="FacebookLink" class="form-control" placeholder="FacebookLink">
+				<label asp-for="FacebookLink">FacebookLink</label>
+				<span asp-validation-for="FacebookLink" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="TwitterLink" class="form-control" placeholder="TwitterLink">
+				<label asp-for="TwitterLink">TwitterLink</label>
+				<span asp-validation-for="TwitterLink" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="Instagram" class="form-control" placeholder="Instagram">
+				<label asp-for="Instagram">Instagram</label>
+				<span asp-validation-for="Instagram" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="Google" class="form-control" placeholder="Google">
+				<label asp-for="Google">Google</label>
+				<span asp-validation-for="Google" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="row mt-3 mt-4">
+			<div style="width:200px" class="vol-md-3">
+				<label asp-for="LogoImage" class="form-label">LogoImage</label>
+				<input asp-for="LogoImage" class="form-control">
+				<img style="width:100px" src="~/uploads/settings/@Model?.Logo" />
+				<span asp-validation-for="LogoImage"></span>
+			</div>
+			
+		</div>
+		<div class="row mt-3 mt-4">
+			<div style="width:200px" class="vol-md-3">
+				<label asp-for="CallusIcon" class="form-label">CallusIcon</label>
+				<input asp-for="CallusIcon" class="form-control">
+				<img style="width:100px" src="~/uploads/settings/@Model?.CallUsIcon" />
+				<span asp-validation-for="CallusIcon"></span>
+			</div>
+
+		</div>
+		<div asp-validation-summary="ModelOnly"></div>
+
+		<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+	</form>
+
+
+</div>

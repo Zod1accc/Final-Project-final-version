@@ -1,0 +1,27 @@
+﻿@model List<BasketPartialViewModel>
+
+
+	@foreach (var item in Model)
+{
+	if (item.Count>0)
+	{
+		double price = item.SellPrice - (item.SellPrice * item.DiscountPrice) / 100;
+		<li>
+			<div class="img-product">
+				<img src="~/uploads/products/@item.Image" alt="">
+			</div>
+			<div class="info-product">
+				<div class="name">
+					@item.Name
+				</div>
+				<div class="price">
+					<span id="basketItemCount">@item.Count x</span>
+					<span>$@price.ToString("0.00")</span>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<a class="delete btn-deleteproduct" asp-action="RemoveFromBasket" asp-controller="home" asp-route-id="@item.ProductId"><span>x</span></a>
+		</li>
+	}
+	
+}

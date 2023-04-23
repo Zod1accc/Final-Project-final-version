@@ -1,0 +1,94 @@
+﻿
+@model PaginatedList<ZipCode>
+
+@{
+    int count = (Model.Page - 1) *5;
+}
+<div class="d-flex justify-content-between container-fluid mb-4">
+	<h3>ZipCodes</h3>
+	<div class="col-auto">
+		<a asp-action="create" asp-controller="zipcode" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Add ZipCode</a>
+	</div>
+</div>
+<!-- Tables Without Borders -->
+<table class="table table-borderless table-nowrap">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Code</th>
+            <th scope="col">DiscountPrice</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.Code</td>
+                <td>@item.DiscountPrice</td>
+                <td>@item.CreatedDate.AddDays(item.ValidityPeriodInDays)</td>
+                <td>
+                    @if (item.IsDisabled)
+                    {
+                        <span class="badge badge-soft-danger">Disabled</span>
+                    }
+                    else
+                    {
+                        
+                        <span class="badge badge-soft-success">Active</span>
+                    }
+                </td>
+                <td>
+                    <div class="hstack gap-3 fs-15">
+                        <a asp-action="update" asp-controller="zipcode" asp-route-id="@item.Id" class="link-primary"><i class="ri-settings-4-line"></i></a>
+                        <a asp-action="delete" asp-controller="zipcode" asp-route-id="@item.Id" class="link-danger delete-item-btn"><i class="ri-delete-bin-5-line "></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+    
+</table>
+<div>
+    <form method="get">
+        <nav aria-label="...">
+            <ul class="pagination">
+                @if (Model.HasPrevious)
+                {
+                    <li class="page-item ">
+                        <a class="page-link" asp-action="index" asp-controller="zipcode" asp-route-page="@(Model.Page-1)">Previous</a>
+                    </li>
+                }else
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link disable" asp-action="index" asp-controller="zipcode" asp-route-page="@(Model.Page-1)">Previous</a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.TotalPage; i++)
+                {
+                    <li class="page-item @(Model.Page == i ? "active":" ")" aria-current="page">
+                        <a class="page-link" asp-action="index" asp-controller="zipcode" asp-route-page="@i">@i</a>
+                    </li>
+                }
+                @if (Model.HasNext)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="index" asp-controller="zipcode" asp-route-page="@(Model.Page+1)">Next</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link disabled" asp-action="index" asp-controller="zipcode" asp-route-page="@(Model.Page+1)">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </form>
+</div>

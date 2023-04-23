@@ -1,0 +1,53 @@
+﻿@model List<ContactCenter>
+@{
+	int count = 0;
+}
+<div class="d-flex justify-content-between container-fluid mb-4">
+	<h3>Contact Center</h3>
+	
+</div>
+
+
+<div class="table-responsive table-card">
+	<table class="table table-nowrap mb-0">
+		<thead class="table-light">
+			<tr>
+
+				<th scope="col">#</th>
+				<th scope="col">Title</th>
+				<th scope="col">Context</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				string shortValue = item.Value.Substring(0, Math.Min(item.Value.Length, 40)) + "...";
+				count++;
+				<tr>
+					<td>@count</td>
+					<td>@item.Key</td>
+					@if(item.Value.Length > 40)
+					{
+						<td>@shortValue</td>
+					}
+					else
+					{
+						<td>@item.Value</td>
+					}
+
+					
+					<td>
+						<div class="hstack gap-3 fs-15">
+							<a asp-action="ContactCenterUpdate" asp-controller="Contactservices" asp-route-id="@item.Id" class="link-primary"><i class="ri-settings-4-line"></i></a>
+						</div>
+					</td>
+				</tr>
+			}
+
+
+		</tbody>
+	</table>
+</div>
+
+

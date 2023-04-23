@@ -1,0 +1,154 @@
+﻿@model TvViewModel
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Cteate TV</h3>
+
+</div>
+
+<div class="cotainer-fluid ">
+	<form method="post" asp-action="create" enctype="multipart/form-data">
+		<div class="row ">
+			<div class="form-floating col-md-4">
+				<input asp-for="Name" class="form-control" placeholder="Name">
+				<label asp-for="Name">Name</label>
+				<span asp-validation-for="Name"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="CostPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="CostPrice">CostPrice</label>
+				<span asp-validation-for="CostPrice" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="SellPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="SellPrice">SellPrice</label>
+				<span asp-validation-for="SellPrice" class="text-danger"></span>
+			</div>
+
+		</div>
+		<div class="row mt-3">
+
+
+			<div class="form-floating col-md-4">
+				<input asp-for="DiscountPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="DiscountPrice">DiscountPrice</label>
+				<span asp-validation-for="DiscountPrice" class="text-danger"></span>
+			</div>
+			<div class="col-md-4">
+
+				<textarea asp-for="Description" class="form-control" placeholder="Description"></textarea>
+				<span asp-validation-for="Description"></span>
+			</div>
+			<div class="form-check form-check-success mb-3 mt-3 col-md-2">
+				<input class="form-check-input" type="checkbox" asp-for="IsAvailablity">
+				<label class="form-check-label" asp-for="IsAvailablity">
+					IsAvailablity
+				</label>
+			</div>
+			<div class="form-check form-check-success mb-3 mt-3 col-md-2">
+				<input class="form-check-input" type="checkbox" asp-for="IsFeatured">
+				<label class="form-check-label" asp-for="IsFeatured">
+					IsFeatured
+				</label>
+			</div>
+		</div>
+		@*<div class="row mt-3">
+
+
+		</div>*@
+
+		<div class="row mt-3">
+			<div style="width:200px" class="vol-md-3">
+				<label asp-for="PosterImage" class="form-label">Poster Image</label>
+				<input asp-for="PosterImage" class="form-control">
+				<span asp-validation-for="PosterImage"></span>
+			</div>
+			<div class="form-floating col-md-3 mt-2">
+				<input asp-for="ProductCount" class="form-control" placeholder="ProductCount">
+				<label asp-for="ProductCount">ProductCount</label>
+				<span asp-validation-for="ProductCount" class="text-danger"></span>
+			</div>
+			<div class="form-check form-check-success mb-3 mt-3 col-md-2">
+				<input class="form-check-input" type="checkbox" asp-for="IsNew">
+				<label class="form-check-label" asp-for="IsNew">
+					IsNew
+				</label>
+			</div>
+			<div class="col-md-2 mt-2">
+				<select class="form-select" asp-for="BrandId" asp-items="@(new SelectList(ViewBag.Brands,"Id","Name"))">
+				</select>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-4">
+				<label asp-for="ImageFiles" class="form-label"> Images</label>
+				<input asp-for="ImageFiles" class="form-control">
+				<span asp-validation-for="ImageFiles"> </span>
+				@*@foreach (var item in ViewBag.Images)
+				{
+				<div class="mt-3" style="width:150px;position:relative">
+				<img style="width:100px" src="~/uploads/tvs/@item?.Image" />
+				<span class="text-danger deleteBtnImage" style="position: absolute;top: -13%;right: 4%;font-weight: bold;font-size: 19px;cursor:pointer">X</span>
+				<input type="hidden" name="ImageIds" value="@item?.Id" />
+				</div>
+
+				}*@
+			</div>
+
+		</div>
+		<div class="d-flex justify-content-between container-fluid mt-4">
+			<h3>Tv Features</h3>
+
+		</div>
+		<div class="row ">
+			<div class="form-floating col-md-3">
+				<input asp-for="EkranNovu" class="form-control" placeholder="EkranNovu">
+				<label asp-for="EkranNovu">EkranNovu</label>
+				<span asp-validation-for="EkranNovu"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="EkranIcazesi" class="form-control" placeholder="EkranIcazesi">
+				<label asp-for="EkranIcazesi">EkranIcazesi</label>
+				<span asp-validation-for="EkranIcazesi" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="Tezlik" class="form-control" placeholder="Tezlik">
+				<label asp-for="Tezlik">Tezlik</label>
+				<span asp-validation-for="Tezlik" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="SesSistemi" class="form-control" placeholder="SesSistemi">
+				<label asp-for="SesSistemi">SesSistemi</label>
+				<span asp-validation-for="SesSistemi" class="text-danger"></span>
+			</div>
+
+		</div>
+		<div class="row mt-4">
+			<div class="form-floating col-md-3">
+				<input asp-for="IşığınNövü" class="form-control" placeholder="IşığınNövü">
+				<label asp-for="IşığınNövü">IşığınNövü</label>
+				<span asp-validation-for="IşığınNövü"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="Cheki" class="form-control" placeholder="Cheki">
+				<label asp-for="Cheki">Cheki</label>
+				<span asp-validation-for="Cheki" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="Olchu" class="form-control" placeholder="Olchu">
+				<label asp-for="Olchu">Olchu</label>
+				<span asp-validation-for="Olchu" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-3">
+				<input asp-for="İstehsalcı" class="form-control" placeholder="İstehsalcı">
+				<label asp-for="İstehsalcı">İstehsalcı</label>
+				<span asp-validation-for="İstehsalcı" class="text-danger"></span>
+			</div>
+
+		</div>
+		<div asp-validation-summary="ModelOnly"></div>
+
+		<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+	</form>
+
+
+</div>

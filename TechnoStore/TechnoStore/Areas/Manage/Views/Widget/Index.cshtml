@@ -1,0 +1,62 @@
+﻿
+@model List<WidgetTitle>
+
+@{
+	int count = 0;
+
+
+}
+
+
+<div class="d-flex justify-content-between container-fluid" style="width:200px">
+	<h3>Widget Titles</h3>
+	<div class="col-auto">
+		@*<a asp-action="create" asp-controller="banner" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Add Banner</a>*@
+	</div>
+</div>
+
+<!-- Tables Without Borders -->
+<table class="table table-borderless table-nowrap mt-4">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Title</th>
+			
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			count++;
+			<tr>
+				<th scope="row">@count</th>
+				<td>@item.Title </td>
+				<td>
+					<div class="hstack gap-3 fs-15">
+						<a asp-action="update" asp-controller="widget" asp-route-id="@item.Id" class="link-primary"><i class="ri-settings-4-line"></i></a>
+						@*<a asp-action="delete" asp-controller="widget" asp-route-id="@item.Id" class="link-danger"><i class="ri-delete-bin-5-line"></i></a>*@
+					</div>
+				</td>
+			</tr>
+		}
+
+
+	</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+﻿@model Support
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update Support</h3>
+
+</div>
+<form method="post" asp-action="update" enctype="multipart/form-data">
+	<div class="row mt-3">
+		<div style="width:200px" class="vol-md-3">
+			<label asp-for="Title" class="form-label">Title</label>
+			<input asp-for="Title" class="form-control">
+			<span asp-validation-for="Title"></span>
+		</div>
+		<div class="col-md-4 mt-3">
+
+			<textarea asp-for="Description" class="form-control" placeholder="Description"></textarea>
+			<span asp-validation-for="Description"></span>
+		</div>
+
+	</div>
+	<div asp-validation-summary="ModelOnly"></div>
+
+	<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+</form>
+
+

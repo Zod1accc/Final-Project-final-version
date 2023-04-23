@@ -1,0 +1,32 @@
+﻿@model WidgetItem
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Create widgetitem</h3>
+
+</div>
+
+<form method="post" asp-action="WidgetItemCreate">
+	<div class="row mt-3">
+
+		<div class="form-floating col-md-3 mt-2">
+			<input asp-for="Name" class="form-control" placeholder="Name">
+			<label asp-for="Name">Name</label>
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<div class="form-floating col-md-3 mt-2">
+		<input asp-for="RedirectUrl" class="form-control" placeholder="RedirectUrl">
+		<label asp-for="RedirectUrl">RedirectUrl</label>
+		<span asp-validation-for="RedirectUrl" class="text-danger"></span>
+		</div>
+		<div class="col-md-2 mt-2">
+			<select class="form-select" asp-for="WidgetTitleId" asp-items="@(new SelectList(ViewBag.WidgetTitles,"Id","Title"))">
+		</select>
+		</div>
+	</div>
+
+	<div asp-validation-summary="ModelOnly"></div>
+
+	<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+</form>
+
+

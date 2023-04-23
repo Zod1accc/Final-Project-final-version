@@ -1,0 +1,52 @@
+﻿@model List<ContactService>
+@{
+	int count = 0;
+}
+<div class="d-flex justify-content-between container-fluid mb-4">
+	<h3>Contact Services</h3>
+	<div class="col-auto">
+		<a asp-action="create" asp-controller="contactservices" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Add Service</a>
+	</div>
+</div>
+
+
+
+
+
+<div class="table-responsive table-card">
+	<table class="table table-nowrap mb-0">
+		<thead class="table-light">
+			<tr>
+
+				<th scope="col">#</th>
+				<th scope="col">Title</th>
+				<th scope="col">Context</th>
+				<th scope="col">Icon</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				count++;
+				<tr>
+					<td>@count</td>
+					<td>@item.Title</td>
+					<td>@item.Content</td>
+
+					<td>
+						<img style="width:33px" src="~/uploads/contactservices/@item?.Icon" />
+					</td>
+					<td>
+						<div class="hstack gap-3 fs-15">
+							<a asp-action="update" asp-controller="Contactservices" asp-route-id="@item.Id" class="link-primary"><i class="ri-settings-4-line"></i></a>
+							<a asp-action="delete" asp-controller="Contactservices" asp-route-id="@item.Id" class="link-danger delete-item-btn"><i class="ri-delete-bin-5-line"></i></a>
+						</div>
+					</td>
+				</tr>
+			}
+
+
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,61 @@
+﻿@model SliderViewModel
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update Slider</h3>
+
+</div>
+
+<div class="cotainer-fluid ">
+	<form method="post" asp-action="update" enctype="multipart/form-data">
+		<div class="row ">
+			<div class="form-floating col-md-4">
+				<input asp-for="Header" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="Header">Header</label>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="Name1" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="Name1">Name 1</label>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="Name2" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="Name2">Name 2</label>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="form-floating col-md-4">
+				<input asp-for="CostPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="CostPrice">CostPrice</label>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="SellPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="SellPrice">SellPrice</label>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="DiscountPrice" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="DiscountPrice">DiscountPrice</label>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-4">
+				@*<label asp-for="Description" class="form-label"></label>*@
+				<textarea asp-for="Description" class="form-control" placeholder="Description"></textarea>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="RedirectUrl" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="RedirectUrl">RedirectUrl</label>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="RedirectUrlText" class="form-control" placeholder="Enter your firstname">
+				<label asp-for="RedirectUrlText">RedirectUrlTextme</label>
+			</div>
+		</div>
+		<div style="width:200px">
+			<label asp-for="ImageFile" class="form-label">Slider Image</label>
+			<input asp-for="ImageFile" class="form-control">
+			<img src="~/uploads/sliders/@Model.Image" style="width:100px;margin-left:10px;margin-top:10px" />
+		</div>
+		<button class="btn btn-block btn-outline-info  mt-3" type="submit">Submit</button>
+	</form>
+
+
+</div>

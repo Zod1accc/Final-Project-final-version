@@ -1,0 +1,19 @@
+﻿@model ContactCenterVM
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update Contact</h3>
+
+</div>
+<form method="post" asp-action="ContactCenterUpdate" enctype="multipart/form-data">
+	<div class="row mt-3">
+		<div class="col-md-4 mt-3">
+			<textarea asp-for="Value" class="form-control" placeholder="Content"></textarea>
+			<span asp-validation-for="Value"></span>
+		</div>
+	</div>
+	<div asp-validation-summary="ModelOnly"></div>
+
+	<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+</form>
+
+

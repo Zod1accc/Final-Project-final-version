@@ -1,0 +1,35 @@
+﻿@model ZipCodeViewModel
+
+<div class="d-flex justify-content-between container-fluid">
+	<h3>Update Zipcode</h3>
+
+</div>
+
+<div class="cotainer-fluid ">
+	<form method="post" asp-action="update" enctype="multipart/form-data">
+		<div class="row ">
+			<div class="form-floating col-md-4">
+				<input asp-for="Code" class="form-control" placeholder="Code">
+				<label asp-for="Code">Code</label>
+				<span asp-validation-for="Code"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="ValidityPeriodInDays" class="form-control" placeholder="ValidityPeriodInDays">
+				<label asp-for="ValidityPeriodInDays">ValidityPeriodInDays</label>
+				<span asp-validation-for="ValidityPeriodInDays" class="text-danger"></span>
+			</div>
+			<div class="form-floating col-md-4">
+				<input asp-for="DiscountPrice" class="form-control" placeholder="DiscountPrice">
+				<label asp-for="DiscountPrice">DiscountPrice</label>
+				<span asp-validation-for="DiscountPrice" class="text-danger"></span>
+			</div>
+
+		</div>
+
+		<div asp-validation-summary="ModelOnly"></div>
+
+		<button class="btn btn-outline-info btn-block mt-3" type="submit">Submit</button>
+	</form>
+
+
+</div>

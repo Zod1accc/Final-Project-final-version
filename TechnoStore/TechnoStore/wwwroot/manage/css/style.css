@@ -1,0 +1,15 @@
+﻿.red {
+    font-size: 12px;
+    font-weight: 600;
+    color: red;
+}
+.even {
+    background-color: red;
+    border-radius: 3px;
+}
+
+
+.odd {
+    background-color: white;
+    border-radius: 0px;
+}
